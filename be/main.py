@@ -2,12 +2,14 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, EmailStr
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+from bson.objectid import ObjectId
 
 # Initialize FastAPI app
 app = FastAPI()
 
+
 # MongoDB connection
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://boo741852963:Deathnote.777@cluster0.pdl9h.mongodb.net/")  # Update this to your MongoDB URI
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://ShresthDB:Salesforce*1@cluster0.o0jca.mongodb.net/")  # Update this to your MongoDB URI
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["healthcare"]
 appointments_collection = db["appointments"]
@@ -51,7 +53,14 @@ async def create_appointment(appointment: Appointment):
 @app.get("/appointments")
 async def get_appointments():
     try:
+        # Fetch data from MongoDB
         appointments = await appointments_collection.find().to_list(length=100)
+        
+        # Convert ObjectId to string
+        for appointment in appointments:
+            if "_id" in appointment:
+                appointment["_id"] = str(appointment["_id"])
+        
         return {"appointments": appointments}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
@@ -76,6 +85,12 @@ async def submit_contact_message(contact_message: ContactMessage):
 async def get_contact_messages():
     try:
         messages = await contact_messages_collection.find().to_list(length=100)
+        
+        # Convert ObjectId to string
+        for message in messages:
+            if "_id" in message:
+                message["_id"] = str(message["_id"])
+        
         return {"messages": messages}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
