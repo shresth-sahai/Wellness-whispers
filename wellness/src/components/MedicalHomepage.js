@@ -390,9 +390,9 @@ const MedicalHomepage = () => {
     <Row>
       {/* MindCare Health Section */}
       <Col md={6} className="mb-4">
-        <h5 className="fw-bold mb-3">MindMend</h5>
+        <h5 className="fw-bold mb-3">ZenSpace</h5>
         <p>
-          At MindMend, we are committed to fostering mental wellness and emotional resilience.
+          At ZenSpace, we are committed to fostering mental wellness and emotional resilience.
           Our approach combines compassionate care, evidence-based therapies, and a holistic outlook
           to address the unique challenges faced by individuals. We believe mental health is not just
           the absence of illness but the presence of a fulfilling, meaningful life. From anxiety and

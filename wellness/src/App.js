@@ -57,10 +57,10 @@ function App() {
           <Navbar.Brand href="#home" className="fw-bold fs-4 text-light">
           <img 
     src="favicon" 
-    alt="MindMend Logo" 
+    alt="ZenSpace Logo" 
     style={{ height: '40px', marginRight: '10px' }} 
   />
-            MindMend</Navbar.Brand>
+            ZenSpace</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav style={{ backgroundColor: 'teal' }} className="ms-auto align-items-center">
