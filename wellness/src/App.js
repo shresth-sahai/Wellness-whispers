@@ -14,6 +14,8 @@ import {
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
+import Community from './components/Community';
+
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -52,7 +54,13 @@ function App() {
       {/* Navbar */}
       <Navbar bg="teal" expand="lg" className="py-3 shadow-sm" style={{ backgroundColor: 'teal' }}>
         <Container>
-          <Navbar.Brand href="#home" className="fw-bold fs-4">HealthCare</Navbar.Brand>
+          <Navbar.Brand href="#home" className="fw-bold fs-4 text-light">
+          <img 
+    src="favicon" 
+    alt="MindMend Logo" 
+    style={{ height: '40px', marginRight: '10px' }} 
+  />
+            MindMend</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav style={{ backgroundColor: 'teal' }} className="ms-auto align-items-center">
@@ -89,6 +97,7 @@ function App() {
               >
                 Book Appointment
               </Button>
+               <Nav.Link style={{ color: 'white' }} as={Link} to="/community" className="mx-2">Community</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -100,6 +109,7 @@ function App() {
           <Route path="/" element={<MedicalHomepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/doctors" element={<Doctors />} />
+          <Route path="/community" element={<Community />} />
         </Routes>
       </div>
 

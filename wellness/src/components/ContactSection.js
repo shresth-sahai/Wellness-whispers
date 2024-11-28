@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Phone, Mail, Clock } from 'lucide-react';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import axios from 'axios';
 
 const ContactSection = () => {
@@ -104,14 +105,67 @@ const ContactSection = () => {
                   <Mail style={{ color: 'teal' }} size={24} className="text-primary me-3" />
                   <div>
                     <h5 className="fw-bold mb-1">Email</h5>
-                    <p className="text-muted mb-0">info@healthcare.com</p>
+                    <p className="text-muted mb-0">wellnesswhisperofficial@gmail.com</p>
                   </div>
                 </div>
                 <div className="d-flex align-items-center mb-4">
-                  <Clock size={24} className="text-primary me-3" />
+                  <Clock style={{ color: 'teal' }} size={24} className="text-primary me-3" />
                   <div>
                     <h5 className="fw-bold mb-1">Working Hours</h5>
                     <p className="text-muted mb-0">Mon-Sun: 24 * 7</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h5 className="fw-bold mb-3">Follow Us</h5>
+                  <div className="d-flex gap-3 mt-3">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61569473794390"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaFacebook size={24} />
+                    </a>
+                    <a
+                      href="https://www.threads.net/@officialwellnesswhisper"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaTwitter size={24} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/officialwellnesswhisper/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaInstagram size={24} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaLinkedin size={24} />
+                    </a>
+                    <a
+                      href="https://x.com/WellneesWhisper"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaTwitter size={24} />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@WellnessWhisperOfficial"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'teal' }}
+                    >
+                      <FaYoutube size={24} />
+                    </a>
                   </div>
                 </div>
               </Card.Body>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'animate.css';
 import { 
   Navbar, 
   Nav, 
@@ -11,7 +12,7 @@ import {
 import { Clock, Phone, Mail, Heart, Activity, Users } from 'lucide-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import '../App.css';
 import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
@@ -69,7 +70,7 @@ const MedicalHomepage = () => {
             <Col md={4} className="text-end">
               <div className="d-flex align-items-center justify-content-end">
                 <Mail size={16} className="me-2" />
-                <small>info@healthcare.com</small>
+                <small>wellnesswhisperofficial@gmail.com</small>
               </div>
             </Col>
           </Row>
@@ -83,16 +84,24 @@ const MedicalHomepage = () => {
     <Row className="py-5 align-items-center">
       {/* Text Content */}
       <Col lg={6}>
-        <h1 className="display-4 fw-bold mb-4">
-          Your Health Is Our Top Priority
-        </h1>
+              <h1 className="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+  Your Health Is Our Top Priority
+</h1>
         <p className="lead mb-4">
           Experience world-class healthcare with our team of expert doctors and modern facilities.
           We're here to provide you with the best medical care possible.
         </p>
         <div className="d-flex gap-3">
-          <Button variant="primary" size="lg" style={{ backgroundColor: 'teal', borderColor: '#00796b' }}>Get Started</Button>
-          <Button variant="primary" style={{ backgroundColor: 'teal', borderColor: '#00796b' }} size="lg">Learn More</Button>
+          <Button variant="primary" size="lg" style={{ backgroundColor: 'teal', borderColor: '#00796b' }} onClick={() => setShowModal(true)}>Book Appointment</Button>
+                <Button
+                   size="lg"
+ 
+  href="https://cmhlp.org/imho/blog/indias-digital-mental-health-landscape-government-initiatives-and-challenges/"
+                  target="_blank"
+                  style={{ backgroundColor: 'teal', borderColor: '#00796b' }}
+>
+   India's Digital Mental Health Landscape
+</Button>
         </div>
       </Col>
 
@@ -110,50 +119,67 @@ const MedicalHomepage = () => {
 </div>
 
       {/* Services Section */}
-      <Container className="py-5" id="services">
-        <div className="text-center mb-5">
-          <h2 className="display-6 fw-bold mb-3">Our Services</h2>
-          <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
-            We offer a comprehensive range of medical services to meet all your healthcare needs.
-          </p>
-        </div>
-        <Row>
-          {[
-            {
-              icon: <Heart size={40} className="icon-teal"  />,
-              title: "Primary Care",
-              description: "Comprehensive Mental  care services for patients of all ages"
-            },
-            {
-              icon: <Activity size={40} className="icon-teal" />,
-              title: "Cardiology",
-              description: "Expert care for heart and cardiovascular conditions"
-            },
-            {
-              icon: <Users size={40} className="icon-teal" />,
-              title: "Emergency Care",
-              description: "24/7 emergency medical services when you need them most"
-            }
-          ].map((service, index) => (
-            <Col md={4} key={index} className="mb-4">
-              <Card className="h-100 border-0 shadow-sm">
-                <Card.Body className="text-center p-4">
-                  <div className="mb-3">
-                    {service.icon}
-                  </div>
-                  <Card.Title className="fw-bold mb-3">{service.title}</Card.Title>
-                  <Card.Text className="text-muted">
-                    {service.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+   <Container className="py-5" id="services">
+  <div className="text-center mb-5">
+    <h2 className="display-6 fw-bold mb-3">Our Mental Health Services</h2>
+    <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
+      We are dedicated to providing a range of mental health services tailored to support your well-being and improve your quality of life.
+    </p>
+  </div>
+  <Row>
+    {[
+      {
+        icon: <Heart size={40} className="icon-teal" />,
+        title: "Therapy & Counseling",
+        description:
+          "Personalized one-on-one sessions with licensed therapists to address emotional challenges and mental health concerns.",
+      },
+      {
+        icon: <Activity size={40} className="icon-teal" />,
+        title: "Stress Management Programs",
+        description:
+          "Workshops and techniques designed to help you manage stress effectively and improve resilience.",
+      },
+      {
+        icon: <Users size={40} className="icon-teal" />,
+        title: "Support Groups",
+        description:
+          "Safe and moderated spaces to connect with others who share similar experiences and challenges.",
+      },
+      {
+        icon: <Heart size={40} className="icon-teal" />,
+        title: "Mindfulness & Meditation",
+        description:
+          "Guided mindfulness practices to enhance mental clarity, reduce anxiety, and improve overall mental well-being.",
+      },
+      {
+        icon: <Activity size={40} className="icon-teal" />,
+        title: "Youth Mental Health Programs",
+        description:
+          "Focused programs for young adults and teens to address mental health issues like anxiety, depression, and academic stress.",
+      },
+      {
+        icon: <Users size={40} className="icon-teal" />,
+        title: "Crisis Intervention",
+        description:
+          "Immediate support and intervention for individuals experiencing a mental health crisis.",
+      },
+    ].map((service, index) => (
+      <Col md={4} key={index} className="mb-4">
+        <Card className="h-100 border-0 shadow-sm">
+          <Card.Body className="text-center p-4">
+            <div className="mb-3">{service.icon}</div>
+            <Card.Title className="fw-bold mb-3">{service.title}</Card.Title>
+            <Card.Text className="text-muted">{service.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))}
+  </Row>
+</Container>
 
       {/* Why Choose Us */}
-      <div className="bg-light py-5">
+      {/* <div className="bg-light py-5">
         <Container>
           <div className="text-center mb-5">
             <h2 className="display-6 fw-bold mb-3">Why Choose Us</h2>
@@ -177,14 +203,14 @@ const MedicalHomepage = () => {
             ))}
           </Row>
         </Container>
-      </div>
+      </div> */}
 
       {/* Call to Action */}
  <div className="text-white py-5" style={{ backgroundColor: 'teal',marginBottom:'2rem' }}>
   <Container className="text-center">
-    <h2 className="display-6 fw-bold mb-3">Need a Doctor?</h2>
+    <h2 className="display-6 fw-bold mb-3">Need a Wellness Expert?</h2>
     <p className="lead mb-4">
-      Book an appointment now and get the best medical care you deserve.
+      Book an appointment now and get the best care you deserve.
     </p>
     <Button variant="light" size="lg" className="mb-5" onClick={() => setShowModal(true)}>
       Book Appointment Now
@@ -323,7 +349,7 @@ const MedicalHomepage = () => {
           <Row className="g-4">
             {group.map((blog, idx) => (
               <Col lg={3} md={6} sm={12} key={idx}>
-                <Card className="border-0 shadow-sm">
+                <Card className="border-1 padding-1 shadow-sm">
                   <Card.Img 
                     variant="top" 
                     src={blog.image} 
@@ -364,9 +390,9 @@ const MedicalHomepage = () => {
     <Row>
       {/* MindCare Health Section */}
       <Col md={6} className="mb-4">
-        <h5 className="fw-bold mb-3">MindCare Health</h5>
+        <h5 className="fw-bold mb-3">MindMend</h5>
         <p>
-          At MindCare Health, we are committed to fostering mental wellness and emotional resilience.
+          At MindMend, we are committed to fostering mental wellness and emotional resilience.
           Our approach combines compassionate care, evidence-based therapies, and a holistic outlook
           to address the unique challenges faced by individuals. We believe mental health is not just
           the absence of illness but the presence of a fulfilling, meaningful life. From anxiety and
@@ -407,18 +433,25 @@ const MedicalHomepage = () => {
             Crisis Support
           </Nav.Link>
           <div className="d-flex gap-3 mt-3">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+            <a href="https://www.facebook.com/profile.php?id=61569473794390" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaFacebook size={24} />
             </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+            <a href="https://www.threads.net/@officialwellnesswhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaTwitter size={24} />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+            <a href="https://www.instagram.com/officialwellnesswhisper/" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaInstagram size={24} />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaLinkedin size={24} />
-            </a>
+                  </a>
+                  <a href="https://x.com/WellneesWhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+              <FaTwitter size={24} />
+                  </a>
+                    <a href="https://www.youtube.com/@WellnessWhisperOfficial" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+              <FaYoutube size={24} />
+                  </a>
+                 
           </div>
         </Nav>
       </Col>

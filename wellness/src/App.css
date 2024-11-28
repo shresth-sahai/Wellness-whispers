@@ -12,13 +12,15 @@ a:visited {
     color: #e0f2f1;
     /* Ensures visited links have the same color */
 }
+
 .icon-teal {
     color: #00796b;
 }
+
 /* Remove the overlapping lines */
 .carousel-item {
     overflow: hidden;
-    gap:10px;
+    gap: 10px;
     /* Ensures content does not overflow the boundaries */
 }
 
@@ -30,19 +32,19 @@ a:visited {
 }
 
 .carousel-control-prev {
-    left: -3%;
+    left: 1%;
     /* Move to the extreme left */
 }
 
 .carousel-control-next {
-    right: -3%;
+    right: 1%;
     /* Move to the extreme right */
 }
 
 /* Customize the button look (optional) */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: teal;
+    
     /* Match the theme color */
     border-radius: 50%;
     width: 40px;
