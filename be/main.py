@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 
 # MongoDB connection
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")  # Update this to your MongoDB URI
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://boo741852963:Deathnote.777@cluster0.pdl9h.mongodb.net/")  # Update this to your MongoDB URI
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["healthcare"]
 appointments_collection = db["appointments"]
