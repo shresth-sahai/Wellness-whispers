@@ -55,25 +55,21 @@ const MedicalHomepage = () => {
       <div className=" py-2 border-bottom">
         <Container>
           <Row className="align-items-center">
-            <Col md={8}>
-              <div className="d-flex gap-4">
-                <div className="d-flex align-items-center">
-                  <Clock size={16} className="me-2" />
-                  <small>Mon-Sun: 24 * 7 </small>
-                </div>
-                <div className="d-flex align-items-center">
-                  <Phone size={16} className="me-2" />
-                  <small>+91 8787080870</small>
-                </div>
-              </div>
-            </Col>
-            <Col md={4} className="text-end">
-              <div className="d-flex align-items-center justify-content-end">
-                <Mail size={16} className="me-2" />
-                <small>wellnesswhisperofficial@gmail.com</small>
-              </div>
-            </Col>
-          </Row>
+  <Col xs={12} className="d-flex flex-wrap justify-content-between align-items-center">
+    <div className="d-flex align-items-center me-4">
+      <Clock size={16} className="me-2" />
+      <small>Mon-Sun: 24 * 7</small>
+    </div>
+    <div className="d-flex align-items-center me-4">
+      <Phone size={16} className="me-2" />
+      <small>+91 8787080870</small>
+    </div>
+    <div className="d-flex align-items-center">
+      <Mail size={16} className="me-2" />
+      <small>shresth@mindshift.co.in</small>
+    </div>
+  </Col>
+</Row>
         </Container>
       </div>
 
@@ -297,19 +293,19 @@ const MedicalHomepage = () => {
             image: 'https://molekule.com/cdn/shop/articles/Woman-meditating_1600x.jpg?v=1682107538',
             title: 'Understanding Anxiety',
             description: 'Learn the signs and coping mechanisms for anxiety.',
-            link: '/blogs/anxiety'
+            link: 'https://nmji.in/anxiety-disorders/'
           },
           {
             image: 'https://img.freepik.com/premium-vector/stress-management-balance-work-concentration-mental-health-work-life-balance-design_566886-1205.jpg',
             title: 'Overcoming Depression',
             description: 'Discover effective strategies to overcome depression.',
-            link: '/blogs/depression'
+            link: 'https://blog.mygov.in/take-care-of-mental-health-while-at-home/'
           },
           {
             image: 'https://www.akshayamedicalcentre.com/wp-content/uploads/2022/05/08-stress-managment.png',
             title: 'Importance of Mental Health',
             description: 'Explore why mental health matters in our daily lives.',
-            link: '/blogs/mental-health-importance'
+            link: 'https://timesofindia.indiatimes.com/life-style/health-fitness/health-news/stress-management-techniques-to-reduce-heart-disease-risk/articleshow/112602161.cms'
           },
           {
             image: 'https://www.mondaycampaigns.org/wp-content/uploads/2021/01/destress-monday-feature-5-techniques-for-stress-management.png',
@@ -323,19 +319,19 @@ const MedicalHomepage = () => {
             image: 'https://www.parenta.com/wp-content/uploads/2022/03/171764278_l-scaled.jpg',
             title: 'Improving Sleep Quality',
             description: 'Tips for better sleep and mental clarity.',
-            link: '/blogs/sleep-health'
+            link: 'https://blogs.cdc.gov/niosh-science-blog/2020/06/29/sleep-hwd/'
           },
           {
             image: 'https://media.istockphoto.com/id/1398647270/vector/psychology-pressure-mental-problems-stress-management-relaxation-to-relieve-anxiety-from.jpg?s=612x612&w=0&k=20&c=nMfejNkjV0-NXb7daySde6MNfvE9OvteVyehRQqKDDA=',
             title: 'Mindfulness Practices',
             description: 'Cultivate mindfulness to improve overall well-being.',
-            link: '/blogs/mindfulness'
+            link: 'https://yoga.ayush.gov.in/blog?q=54'
           },
           {
             image: 'https://img.freepik.com/free-vector/hand-drawn-flat-people-hobbies_23-2149059773.jpg',
             title: 'Building Emotional Resilience',
             description: 'Learn how to bounce back from emotional challenges.',
-            link: '/blogs/emotional-resilience'
+            link: 'https://blog.mygov.in/take-care-of-mental-health-while-at-home/'
           },
           {
             image: 'https://img.freepik.com/free-vector/mental-health-awareness-concept_52683-37916.jpg',
@@ -390,9 +386,9 @@ const MedicalHomepage = () => {
     <Row>
       {/* MindCare Health Section */}
       <Col md={6} className="mb-4">
-        <h5 className="fw-bold mb-3">MindShyft</h5>
+        <h5 className="fw-bold mb-3">MindShift</h5>
         <p>
-          At MindShyft, we are committed to fostering mental wellness and emotional resilience.
+          At MindShift, we are committed to fostering mental wellness and emotional resilience.
           Our approach combines compassionate care, evidence-based therapies, and a holistic outlook
           to address the unique challenges faced by individuals. We believe mental health is not just
           the absence of illness but the presence of a fulfilling, meaningful life. From anxiety and
