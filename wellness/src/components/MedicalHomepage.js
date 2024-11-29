@@ -41,7 +41,7 @@ const MedicalHomepage = () => {
     e.preventDefault();
     try {
       // Send form data to the backend API
-      await axios.post('https://your-backend-api.com/appointments', formData);
+      await axios.post('http://127.0.0.1:8000/appointments', formData);
       alert('Appointment booked successfully!');
       setShowModal(false);
       setFormData({ name: '', email: '', phone: '', date: '', message: '' });
@@ -341,7 +341,7 @@ const MedicalHomepage = () => {
             image: 'https://img.freepik.com/free-vector/mental-health-awareness-concept_52683-37916.jpg',
             title: 'Benefits of Therapy',
             description: 'Understand how therapy can transform your life.',
-            link: '/blogs/therapy-benefits'
+            link: 'https://www.nami.org/major-depression/walking-on-a-tight-rope-coping-with-depression/'
           }
         ]
       ].map((group, index) => (
@@ -390,9 +390,9 @@ const MedicalHomepage = () => {
     <Row>
       {/* MindCare Health Section */}
       <Col md={6} className="mb-4">
-        <h5 className="fw-bold mb-3">ZenSpace</h5>
+        <h5 className="fw-bold mb-3">MindShyft</h5>
         <p>
-          At ZenSpace, we are committed to fostering mental wellness and emotional resilience.
+          At MindShyft, we are committed to fostering mental wellness and emotional resilience.
           Our approach combines compassionate care, evidence-based therapies, and a holistic outlook
           to address the unique challenges faced by individuals. We believe mental health is not just
           the absence of illness but the presence of a fulfilling, meaningful life. From anxiety and
