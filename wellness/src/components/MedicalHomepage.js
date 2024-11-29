@@ -66,7 +66,7 @@ const MedicalHomepage = () => {
     </div>
     <div className="d-flex align-items-center">
       <Mail size={16} className="me-2" />
-      <small>shresth@mindshift.co.in</small>
+      <small>queries@mindshift.co.in</small>
     </div>
   </Col>
 </Row>

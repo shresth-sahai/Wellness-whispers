@@ -2,7 +2,12 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Clock, AlertCircle } from 'lucide-react';
 
-const Community = () => {
+const Doctors = () => {
+  const handleRedirect = () => {
+    // Replace with your WhatsApp group invite link
+    const whatsappLink = "https://chat.whatsapp.com/L8DnID7be5e58Icf1xyzzD";
+    window.open(whatsappLink, "_blank"); // Opens the link in a new tab
+  };
   return (
     <div className="min-vh-100 d-flex flex-column">
       {/* Hero Section with Coming Soon */}
@@ -19,7 +24,7 @@ const Community = () => {
                 workshops, support groups, and events focused on mental wellness. Stay tuned for updates!
               </p>
               <div className="d-flex justify-content-center gap-3">
-                <Button style={{backgroundColor:'teal'}} variant="primary" size="lg">Notify Me</Button>
+                <Button onClick={handleRedirect} style={{backgroundColor:'teal'}} variant="primary" size="lg">Notify Me</Button>
                 <Button style={{backgroundColor:'teal'}} variant="primary" size="lg" as="a" href="/">
                   Return Home
                 </Button>
@@ -46,4 +51,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default Doctors;

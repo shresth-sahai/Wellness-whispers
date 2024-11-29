@@ -5,7 +5,7 @@ import '../App.css'
 const Community = () => {
      const handleRedirect = () => {
     // Replace with your WhatsApp group invite link
-    const whatsappLink = "https://chat.whatsapp.com/your-group-invite-link";
+    const whatsappLink = "https://chat.whatsapp.com/L8DnID7be5e58Icf1xyzzD";
     window.open(whatsappLink, "_blank"); // Opens the link in a new tab
   };
   return (

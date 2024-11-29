@@ -4,12 +4,18 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
-
+from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://mindshift.co.in"],  # Frontend URL
+    allow_credentials=True,  # Allow cookies or authentication headers
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # MongoDB connection
 MONGO_URI = os.getenv("MONGO_URI")
