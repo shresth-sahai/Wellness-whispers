@@ -40,7 +40,7 @@ function App() {
     e.preventDefault();
     try {
       // Send form data to the backend API
-      await axios.post('http://127.0.0.1:8000/appointments', formData);
+      await axios.post('https://mindshift-be.onrender.com/appointments', formData);
       alert('Appointment booked successfully!');
       setShowModal(false);
       setFormData({ name: '', email: '', phone: '', date: '', message: '' });

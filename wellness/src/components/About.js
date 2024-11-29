@@ -26,7 +26,7 @@ const About = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/appointments', formData);
+      const response = await axios.post('https://mindshift-be.onrender.com/appointments', formData);
       setStatus('Appointment booked successfully!');
       setShowModal(false);
       setFormData({ name: '', email: '', phone: '', date: '', message: '' });
