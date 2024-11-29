@@ -11,7 +11,7 @@ load_dotenv()
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mindshift.co.in"],  # Frontend URL
+    allow_origins=["https://www.mindshift.co.in"],  # Frontend URL
     allow_credentials=True,  # Allow cookies or authentication headers
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
