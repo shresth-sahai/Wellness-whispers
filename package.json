@@ -1,4 +1,5 @@
 {
+  "homepage": "http://www.mindshift.in",
   "dependencies": {
     "react-router-hash-link": "^2.4.3"
   }
