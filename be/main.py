@@ -3,13 +3,16 @@ from pydantic import BaseModel, EmailStr
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 from bson.objectid import ObjectId
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI()
 
 
 # MongoDB connection
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://ShresthDB:Salesforce*1@cluster0.o0jca.mongodb.net/")  # Update this to your MongoDB URI
+MONGO_URI = os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
 db = client["healthcare"]
 appointments_collection = db["appointments"]
