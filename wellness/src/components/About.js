@@ -119,7 +119,7 @@ const About = () => {
       </div>
 
       {/* Team Section */}
-      <Container className="py-5">
+      {/* <Container className="py-5">
         <h2 className="text-center display-6 fw-bold mb-5">Our Leadership Team</h2>
         <Row className="g-4">
           {[
@@ -161,7 +161,7 @@ const About = () => {
             </Col>
           ))}
         </Row>
-      </Container>
+      </Container> */}
 
       {/* CTA Section */}
       <div style={{ backgroundColor: 'teal' }} className="text-white py-5">
