@@ -126,9 +126,8 @@ async def register_doctor(doctor: DoctorRegistration):
             
             return {"message": "Doctor registered successfully!"}
         else:
-            raise HTTPException(status_code=500, detail="Failed to register the doctor.")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal server error.")
+            raise HTTPException(status_code=500, detail="Failed to register the doctor,Email already registered use a new one!")
+    
 
 @app.get("/doctors")
 async def get_doctors(skip: int = 0, limit: int = 10):
