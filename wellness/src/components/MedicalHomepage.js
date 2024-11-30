@@ -81,10 +81,10 @@ const MedicalHomepage = () => {
       {/* Text Content */}
       <Col lg={6}>
               <h1 className="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
-  Your Health Is Our Top Priority
+  Your Mental Health Is Our Top Priority
 </h1>
         <p className="lead mb-4">
-          Experience world-class healthcare with our team of expert doctors and modern facilities.
+          Experience world-class mental healthcare with our team of expert psychiatrists.
           We're here to provide you with the best medical care possible.
         </p>
         <div className="d-flex gap-3">

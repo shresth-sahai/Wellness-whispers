@@ -119,23 +119,7 @@ const ContactSection = () => {
                   <h5 className="fw-bold mb-3">Follow Us</h5>
                   <div className="d-flex gap-3 mt-3">
                     <a
-                      href="https://www.facebook.com/profile.php?id=61569473794390"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: 'teal' }}
-                    >
-                      <FaFacebook size={24} />
-                    </a>
-                    <a
-                      href="https://www.threads.net/@officialwellnesswhisper"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: 'teal' }}
-                    >
-                      <FaTwitter size={24} />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/officialwellnesswhisper/"
+                      href="https://www.instagram.com/mindshift.co.in/"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'teal' }}
@@ -143,7 +127,7 @@ const ContactSection = () => {
                       <FaInstagram size={24} />
                     </a>
                     <a
-                      href="https://www.linkedin.com"
+                      href="https://www.linkedin.com/company/officialmindshift/posts/?feedView=all"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'teal' }}
@@ -151,7 +135,7 @@ const ContactSection = () => {
                       <FaLinkedin size={24} />
                     </a>
                     <a
-                      href="https://x.com/WellneesWhisper"
+                      href="https://x.com/onemindshift"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'teal' }}

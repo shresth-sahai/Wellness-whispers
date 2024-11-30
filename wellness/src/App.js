@@ -23,8 +23,10 @@ function App() {
     name: '',
     email: '',
     phone: '',
-    date: '',
-    message: '',
+    specialization: '',
+    experience: '',
+    qualification: '',
+    bio: '',
   });
 
   // Handle form input changes
@@ -35,44 +37,27 @@ function App() {
     });
   };
 
-  // Handle form submission
+  // Handle form submission for doctor registration
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
       // Send form data to the backend API
-      await axios.post('https://mindshift-be.onrender.com/appointments', formData);
-      alert('Appointment booked successfully!');
+      await axios.post('https://mindshift-be.onrender.com/doctors/register', formData);
+      alert('Registration successful!');
       setShowModal(false);
-      setFormData({ name: '', email: '', phone: '', date: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        specialization: '',
+        experience: '',
+        qualification: '',
+        bio: '',
+      });
     } catch (error) {
-      alert('Failed to book the appointment. Please try again.');
+      alert('Failed to register. Please try again.');
     }
   };
-
-  // Function to scroll to Services or Contact section
-  const handleScrollToSection = (section) => {
-    // Check if we're on the Home page (root route)
-    if (window.location.pathname === '/') {
-      // Scroll directly to the target section
-      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // If not on the Home page, redirect to Home and set the hash for scrolling
-      window.location.href = `/?section=${section}`;
-    }
-  };
-
-  // Effect hook to handle scrolling after page load when URL has a hash
-  useEffect(() => {
-    // Check if there's a section in the URL query
-    const params = new URLSearchParams(window.location.search);
-    const section = params.get('section');
-    if (section) {
-      // Scroll to the section if it exists
-      setTimeout(() => {
-        document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
-      }, 300); // Allow time for the page to load and then scroll
-    }
-  }, []);
 
   return (
     <Router>
@@ -80,49 +65,23 @@ function App() {
       <Navbar bg="teal" expand="lg" className="py-3 shadow-sm" style={{ backgroundColor: 'teal' }}>
         <Container>
           <Navbar.Brand href="#home" className="fw-bold fs-4 text-light">
-            {/* <img 
-              src="favicon" 
-              alt="MindShift Logo" 
-              style={{ height: '40px', marginRight: '10px' }} 
-            /> */}
             MindShift
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav style={{ backgroundColor: 'teal' }} className="ms-auto align-items-center">
               <Nav.Link style={{ color: 'white' }} as={Link} to="/" className="mx-2">Home</Nav.Link>
-              <Nav.Link
-                style={{ color: 'white' }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollToSection('services');
-                }}
-                className="mx-2"
-              >
-                Services
-              </Nav.Link>
               <Nav.Link style={{ color: 'white' }} as={Link} to="/doctors" className="mx-2">Doctors</Nav.Link>
               <Nav.Link style={{ color: 'white' }} as={Link} to="/about" className="mx-2">About</Nav.Link>
-              <Nav.Link
-                style={{ color: 'white' }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleScrollToSection('contact');
-                }}
-                className="mx-2"
-              >
-                Contact
-              </Nav.Link>
-
+              <Nav.Link style={{ color: 'white' }} as={Link} to="/community" className="mx-2">Community</Nav.Link>
               <Button
                 variant="primary"
                 className="ms-3"
                 style={{ backgroundColor: '#00796b', borderColor: '#00796b' }}
                 onClick={() => setShowModal(true)}
               >
-                Book Appointment
+                Join as a Consultant
               </Button>
-              <Nav.Link style={{ color: 'white' }} as={Link} to="/community" className="mx-2">Community</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -138,10 +97,10 @@ function App() {
         </Routes>
       </div>
 
-      {/* Modal for Booking Appointment */}
+      {/* Modal for Doctor Registration */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Book an Appointment</Modal.Title>
+          <Modal.Title>Register as a Doctor</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleFormSubmit}>
@@ -179,24 +138,48 @@ function App() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Preferred Date</Form.Label>
+              <Form.Label>Specialization</Form.Label>
               <Form.Control
-                type="date"
-                name="date"
-                value={formData.date}
+                type="text"
+                name="specialization"
+                placeholder="Enter your specialization"
+                value={formData.specialization}
                 onChange={handleInputChange}
                 required
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Message</Form.Label>
+              <Form.Label>Experience (in years)</Form.Label>
+              <Form.Control
+                type="number"
+                name="experience"
+                placeholder="Enter years of experience"
+                value={formData.experience}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Qualification</Form.Label>
+              <Form.Control
+                type="text"
+                name="qualification"
+                placeholder="Enter your qualifications"
+                value={formData.qualification}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Bio</Form.Label>
               <Form.Control
                 as="textarea"
-                name="message"
+                name="bio"
                 rows={3}
-                placeholder="Additional details (optional)"
-                value={formData.message}
+                placeholder="Tell us about yourself"
+                value={formData.bio}
                 onChange={handleInputChange}
+                required
               />
             </Form.Group>
             <Button
@@ -215,4 +198,3 @@ function App() {
 }
 
 export default App;
-
