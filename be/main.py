@@ -151,4 +151,8 @@ async def get_doctors():
         
         return {"doctors": doctors}
     except Exception as e:
+<<<<<<< HEAD
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+=======
+        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+>>>>>>> b93ae2700a1aed3fae53e69358bc12db8bbe084c
