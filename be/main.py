@@ -13,7 +13,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://www.mindshift.co.in"],  # Replace with your frontend domain
+    allow_origins=["https://www.mindshift.co.in",
+                   ],  # Replace with your frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -122,6 +123,7 @@ async def register_doctor(doctor: DoctorRegistration):
             raise HTTPException(status_code=400, detail="Doctor with this email is already registered.")
         result = await doctors_collection.insert_one(doctor.dict())
         if result.inserted_id:
+            
             return {"message": "Doctor registered successfully!"}
         else:
             raise HTTPException(status_code=500, detail="Failed to register the doctor.")
