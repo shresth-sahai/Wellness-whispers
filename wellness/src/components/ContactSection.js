@@ -143,7 +143,7 @@ const ContactSection = () => {
                       <FaTwitter size={24} />
                     </a>
                     <a
-                      href="https://www.youtube.com/@WellnessWhisperOfficial"
+                      href="https://www.youtube.com/@MindShiftOffice"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'teal' }}
