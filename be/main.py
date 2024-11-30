@@ -20,7 +20,9 @@ app.add_middleware(
 # MongoDB connection
 MONGO_URI = os.getenv("MONGO_URI")
 client = AsyncIOMotorClient(MONGO_URI)
+
 db = client["healthcare"]
+doctors_collection = db["doctors"]
 appointments_collection = db["appointments"]
 contact_messages_collection = db["contact_messages"]
 
@@ -37,6 +39,15 @@ class ContactMessage(BaseModel):
     email: EmailStr
     message: str
 
+# Pydantic model for doctor registration
+class DoctorRegistration(BaseModel):
+    name: str
+    email: EmailStr
+    phone: str
+    specialization: str
+    experience: int  # Years of experience
+    qualification: str
+    bio: str  # Short biography or description
 
 # Root route for testing
 @app.get("/")
@@ -105,3 +116,39 @@ async def get_contact_messages():
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
 
 
+# API endpoint for doctor registration
+@app.post("/doctors/register")
+async def register_doctor(doctor: DoctorRegistration):
+    try:
+        # Check if the doctor already exists
+        existing_doctor = await doctors_collection.find_one({"email": doctor.email})
+        if existing_doctor:
+            raise HTTPException(
+                status_code=400,
+                detail="A doctor with this email is already registered.",
+            )
+        
+        # Insert the doctor details into MongoDB
+        result = await doctors_collection.insert_one(doctor.dict())
+        if result.inserted_id:
+            return {"message": "Doctor registered successfully!"}
+        else:
+            raise HTTPException(status_code=500, detail="Failed to register the doctor.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+
+# API endpoint to fetch all registered doctors (optional)
+@app.get("/doctors")
+async def get_doctors():
+    try:
+        # Fetch all doctors from MongoDB
+        doctors = await doctors_collection.find().to_list(length=100)
+        
+        # Convert ObjectId to string
+        for doctor in doctors:
+            if "_id" in doctor:
+                doctor["_id"] = str(doctor["_id"])
+        
+        return {"doctors": doctors}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
