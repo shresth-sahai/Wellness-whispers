@@ -429,9 +429,7 @@ const MedicalHomepage = () => {
             Crisis Support
           </Nav.Link>
           <div className="d-flex gap-3 mt-3">
-            <a href="https://www.facebook.com/profile.php?id=61569473794390" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
-              <FaFacebook size={24} />
-            </a>
+            
             <a href="https://www.threads.net/@officialwellnesswhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaTwitter size={24} />
             </a>
@@ -444,7 +442,7 @@ const MedicalHomepage = () => {
                   <a href="https://x.com/WellneesWhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaTwitter size={24} />
                   </a>
-                    <a href="https://www.youtube.com/@WellnessWhisperOfficial" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+                    <a href="https://www.youtube.com/@MindShiftOffice" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaYoutube size={24} />
                   </a>
                  
