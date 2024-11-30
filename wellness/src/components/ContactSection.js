@@ -105,7 +105,7 @@ const ContactSection = () => {
                   <Mail style={{ color: 'teal' }} size={24} className="text-primary me-3" />
                   <div>
                     <h5 className="fw-bold mb-1">Email</h5>
-                    <p className="text-muted mb-0">wellnesswhisperofficial@gmail.com</p>
+                    <p className="text-muted mb-0">queries@mindshift.co.in</p>
                   </div>
                 </div>
                 <div className="d-flex align-items-center mb-4">

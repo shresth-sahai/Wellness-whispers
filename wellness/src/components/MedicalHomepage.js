@@ -435,10 +435,10 @@ const MedicalHomepage = () => {
             <a href="https://www.threads.net/@officialwellnesswhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaTwitter size={24} />
             </a>
-            <a href="https://www.instagram.com/officialwellnesswhisper/" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+            <a href="https://www.instagram.com/mindshift.co.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaInstagram size={24} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
+            <a href="https://www.linkedin.com/company/officialmindshift/" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaLinkedin size={24} />
                   </a>
                   <a href="https://x.com/WellneesWhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
