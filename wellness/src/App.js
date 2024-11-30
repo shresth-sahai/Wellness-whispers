@@ -4,7 +4,6 @@ import MedicalHomepage from './components/MedicalHomepage';
 import About from './components/About';
 import Doctors from './components/Doctors';
 import Community from './components/Community';
-import ContactSection from './components/ContactSection';
 import {
   Navbar,
   Nav,
@@ -14,11 +13,12 @@ import {
   Form,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,13 +37,39 @@ function App() {
     });
   };
 
-  // Handle form submission for doctor registration
+  // Validate the form before submission
+  const validateForm = () => {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.specialization ||
+      !formData.experience ||
+      !formData.qualification ||
+      !formData.bio
+    ) {
+      alert('Please fill out all required fields.');
+      return false;
+    }
+    if (formData.experience < 0) {
+      alert('Experience must be a positive number.');
+      return false;
+    }
+    return true;
+  };
+
+  // Handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
+    setLoading(true);
     try {
-      // Send form data to the backend API
-      await axios.post('https://mindshift-be.onrender.com/doctors/register', formData);
-      alert('Registration successful!');
+      const response = await axios.post(
+        'https://mindshift-be.onrender.com/doctors/register',
+        formData
+      );
+      alert(response.data.message || 'Registration successful!');
       setShowModal(false);
       setFormData({
         name: '',
@@ -55,7 +81,14 @@ function App() {
         bio: '',
       });
     } catch (error) {
-      alert('Failed to register. Please try again.');
+      console.error('Error during registration:', error);
+      if (error.response && error.response.data && error.response.data.detail) {
+        alert(`Error: ${error.response.data.detail}`);
+      } else {
+        alert('Email already registered, use a new one please!');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,10 +103,18 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav style={{ backgroundColor: 'teal' }} className="ms-auto align-items-center">
-              <Nav.Link style={{ color: 'white' }} as={Link} to="/" className="mx-2">Home</Nav.Link>
-              <Nav.Link style={{ color: 'white' }} as={Link} to="/doctors" className="mx-2">Doctors</Nav.Link>
-              <Nav.Link style={{ color: 'white' }} as={Link} to="/about" className="mx-2">About</Nav.Link>
-              <Nav.Link style={{ color: 'white' }} as={Link} to="/community" className="mx-2">Community</Nav.Link>
+              <Nav.Link style={{ color: 'white' }} as={Link} to="/" className="mx-2">
+                Home
+              </Nav.Link>
+              <Nav.Link style={{ color: 'white' }} as={Link} to="/doctors" className="mx-2">
+                Doctors
+              </Nav.Link>
+              <Nav.Link style={{ color: 'white' }} as={Link} to="/about" className="mx-2">
+                About
+              </Nav.Link>
+              <Nav.Link style={{ color: 'white' }} as={Link} to="/community" className="mx-2">
+                Community
+              </Nav.Link>
               <Button
                 variant="primary"
                 className="ms-3"
@@ -187,8 +228,9 @@ function App() {
               type="submit"
               style={{ backgroundColor: '#00796b', borderColor: '#00796b' }}
               className="w-100"
+              disabled={loading}
             >
-              Submit
+              {loading ? 'Submitting...' : 'Submit'}
             </Button>
           </Form>
         </Modal.Body>
@@ -198,4 +240,3 @@ function App() {
 }
 
 export default App;
-
