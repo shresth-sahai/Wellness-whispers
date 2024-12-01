@@ -430,9 +430,6 @@ const MedicalHomepage = () => {
           </Nav.Link>
           <div className="d-flex gap-3 mt-3">
             
-            <a href="https://www.threads.net/@officialwellnesswhisper" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
-              <FaTwitter size={24} />
-            </a>
             <a href="https://www.instagram.com/mindshift.co.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#e0f2f1' }}>
               <FaInstagram size={24} />
             </a>
